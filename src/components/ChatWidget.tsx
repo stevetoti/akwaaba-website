@@ -99,7 +99,11 @@ export default function ChatWidget() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {/* Chat Panel */}
       {isOpen && (
-        <div className="w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden animate-slide-up" style={{ maxHeight: "500px" }}>
+        <div 
+          className="w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden animate-slide-up" 
+          style={{ maxHeight: "500px" }}
+          onClick={(e) => e.stopPropagation()}
+        >
           {/* Header */}
           <div className="bg-[#233C6F] px-5 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
