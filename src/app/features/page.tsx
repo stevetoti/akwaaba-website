@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ const features = [
     subtitle: "GPT-Powered Customer Service",
     description:
       "Deploy intelligent chatbots that understand your business context, answer customer queries 24/7, and seamlessly hand off to human agents when needed.",
+    image: "/images/ai-technology.jpg",
     details: [
       "Train on your business data — FAQs, product catalogs, policies",
       "Supports English, Twi, and other Ghanaian languages",
@@ -32,6 +34,7 @@ const features = [
     subtitle: "WhatsApp, SMS, Web Chat, and More",
     description:
       "Meet your customers where they are. Manage WhatsApp, SMS, Facebook Messenger, Instagram DMs, and web chat all from a single unified inbox.",
+    image: "/images/messaging.jpg",
     details: [
       "WhatsApp Business API integration",
       "Bulk SMS with local Ghana numbers",
@@ -48,6 +51,7 @@ const features = [
     subtitle: "Shared Inbox for Your Entire Team",
     description:
       "A collaborative inbox where your support, sales, and operations teams can manage all customer conversations in one place.",
+    image: "/images/team-collab.jpg",
     details: [
       "Assign conversations to team members",
       "Internal notes and mentions",
@@ -64,6 +68,7 @@ const features = [
     subtitle: "Data-Driven Insights",
     description:
       "Understand your customer communication with detailed analytics. Track message delivery, response times, customer satisfaction, and ROI on campaigns.",
+    image: "/images/modern-office.jpg",
     details: [
       "Real-time message delivery tracking",
       "Response time analytics",
@@ -80,6 +85,7 @@ const features = [
     subtitle: "Automate Repetitive Tasks",
     description:
       "Build powerful automation workflows without code. Trigger messages based on events, schedule follow-ups, and create multi-step customer journeys.",
+    image: "/images/customer-service.jpg",
     details: [
       "Visual workflow builder",
       "Event-based triggers",
@@ -96,6 +102,7 @@ const features = [
     subtitle: "Know Every Customer",
     description:
       "A built-in CRM that automatically captures and organizes customer data from every conversation across every channel.",
+    image: "/images/office-culture.jpg",
     details: [
       "Automatic contact creation",
       "Custom fields and tags",
@@ -112,6 +119,7 @@ const features = [
     subtitle: "Reach Thousands Instantly",
     description:
       "Send targeted WhatsApp and SMS campaigns to your customer base. Personalize messages, schedule delivery, and track results.",
+    image: "/images/business-phones.jpg",
     details: [
       "WhatsApp broadcast templates",
       "Bulk SMS campaigns",
@@ -128,6 +136,7 @@ const features = [
     subtitle: "Build Custom Integrations",
     description:
       "Full REST API access for developers who want to integrate Akwaaba AI into their existing systems, apps, or workflows.",
+    image: "/images/ai-technology.jpg",
     details: [
       "RESTful API with full documentation",
       "Webhook support for real-time events",
@@ -144,6 +153,7 @@ const features = [
     subtitle: "Built for the Ghanaian Market",
     description:
       "Features specifically designed for doing business in Ghana, including mobile money integration, local language support, and Ghana number management.",
+    image: "/images/accra-city.jpg",
     details: [
       "Mobile Money payment integration (MTN, Vodafone, AirtelTigo)",
       "Local language AI support (Twi, Ga, Ewe)",
@@ -207,7 +217,18 @@ export default function FeaturesPage() {
                     Try It Free
                   </a>
                 </div>
-                <div className="flex-1 w-full">
+                <div className="flex-1 w-full space-y-6">
+                  {/* Feature Image */}
+                  <div className="relative h-52 w-full rounded-2xl overflow-hidden">
+                    <Image
+                      src={feat.image}
+                      alt={feat.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
                   <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                     <h3 className="font-bold text-deep-blue mb-4">Key Capabilities</h3>
                     <ul className="space-y-3">

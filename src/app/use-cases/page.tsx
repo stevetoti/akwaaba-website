@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ const useCases = [
     icon: "🛒",
     title: "Retail & E-Commerce",
     tagline: "Sell more, support faster",
+    image: "/images/retail-market.jpg",
     description:
       "From corner shops to online stores, Akwaaba AI helps retailers manage orders, answer product questions, and send promotional campaigns via WhatsApp and SMS.",
     benefits: [
@@ -32,6 +34,7 @@ const useCases = [
     icon: "🏦",
     title: "Banking & Finance",
     tagline: "Secure, compliant communication",
+    image: "/images/banking.jpg",
     description:
       "Banks, microfinance institutions, and fintech companies use Akwaaba AI for secure customer communication, transaction alerts, and loan management.",
     benefits: [
@@ -50,6 +53,7 @@ const useCases = [
     icon: "🏥",
     title: "Healthcare",
     tagline: "Better patient communication",
+    image: "/images/healthcare.jpg",
     description:
       "Hospitals, clinics, and pharmacies use Akwaaba AI to send appointment reminders, share test results, and provide 24/7 health information via AI chatbots.",
     benefits: [
@@ -68,6 +72,7 @@ const useCases = [
     icon: "🎓",
     title: "Education",
     tagline: "Connect with students and parents",
+    image: "/images/education.jpg",
     description:
       "Schools, universities, and training centres use Akwaaba AI to communicate with students and parents about admissions, fees, exam results, and events.",
     benefits: [
@@ -86,6 +91,7 @@ const useCases = [
     icon: "🏨",
     title: "Hospitality & Tourism",
     tagline: "Exceptional guest experiences",
+    image: "/images/hospitality.jpg",
     description:
       "Hotels, restaurants, and tour operators use Akwaaba AI to manage bookings, send confirmations, collect reviews, and provide instant guest support.",
     benefits: [
@@ -104,6 +110,7 @@ const useCases = [
     icon: "🏛️",
     title: "Government & Public Sector",
     tagline: "Citizen engagement at scale",
+    image: "/images/government.jpg",
     description:
       "Government agencies and public institutions use Akwaaba AI for citizen communication, service announcements, emergency alerts, and feedback collection.",
     benefits: [
@@ -175,7 +182,19 @@ export default function UseCasesPage() {
                     Get Started
                   </a>
                 </div>
-                <div className="flex-1 w-full">
+                <div className="flex-1 w-full space-y-6">
+                  {/* Industry Image */}
+                  <div className="relative h-56 w-full rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src={uc.image}
+                      alt={uc.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-deep-blue/30 to-transparent" />
+                    <div className="absolute bottom-4 left-4 text-4xl">{uc.icon}</div>
+                  </div>
                   <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                     <h3 className="font-bold text-deep-blue mb-4">How Akwaaba AI Helps</h3>
                     <ul className="space-y-3">

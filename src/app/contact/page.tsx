@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
@@ -86,7 +87,21 @@ export default function ContactPage() {
                   ))}
                 </div>
 
-                <div className="mt-8 p-6 bg-deep-blue/5 rounded-2xl">
+                {/* Accra office image */}
+                <div className="mt-8 relative h-48 w-full rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/accra-city.jpg"
+                    alt="Accra, Ghana cityscape"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep-blue/60 to-transparent flex items-end p-4">
+                    <p className="text-white font-semibold text-sm">📍 Based in Accra, Ghana</p>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-6 bg-deep-blue/5 rounded-2xl">
                   <h3 className="font-bold text-deep-blue mb-2">Enterprise Sales</h3>
                   <p className="text-gray-600 text-sm mb-3">
                     Need a custom solution for your organization? Our enterprise team can create a tailored package.

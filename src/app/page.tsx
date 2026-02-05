@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const stats = [
@@ -14,36 +15,42 @@ const features = [
     title: "AI-Powered Chatbots",
     description:
       "Deploy GPT-powered chatbots that understand your business and serve customers in English, Twi, and other local languages.",
+    image: "/images/ai-technology.jpg",
   },
   {
     icon: "📱",
     title: "Multi-Channel Messaging",
     description:
       "Reach customers on WhatsApp, SMS, Web Chat, Facebook Messenger, and Instagram — all from one dashboard.",
+    image: "/images/messaging.jpg",
   },
   {
     icon: "📥",
     title: "Team Inbox",
     description:
       "A shared inbox where your entire team can manage customer conversations, assign tickets, and collaborate.",
+    image: "/images/team-collab.jpg",
   },
   {
     icon: "📊",
     title: "Analytics Dashboard",
     description:
       "Track message delivery, response times, customer satisfaction, and campaign performance in real time.",
+    image: "/images/modern-office.jpg",
   },
   {
     icon: "⚡",
     title: "Automation Workflows",
     description:
       "Create automated workflows for welcome messages, follow-ups, appointment reminders, and more.",
+    image: "/images/customer-service.jpg",
   },
   {
     icon: "📢",
     title: "Broadcast Messaging",
     description:
       "Send targeted campaigns to thousands of customers via WhatsApp and SMS with personalization.",
+    image: "/images/business-phones.jpg",
   },
 ];
 
@@ -77,35 +84,50 @@ const testimonials = [
       "Akwaaba AI transformed how we handle customer enquiries. Our response time dropped from hours to seconds.",
     name: "Kwame A.",
     role: "CEO, Accra Retail Co.",
+    image: "/images/office-culture.jpg",
   },
   {
     quote:
       "The WhatsApp integration is seamless. Our customers love being able to reach us instantly.",
     name: "Ama D.",
     role: "Operations Manager, GoldStar Finance",
+    image: "/images/banking.jpg",
   },
   {
     quote:
       "We automated 80% of our support queries. The AI chatbot handles everything from order tracking to FAQs.",
     name: "Kofi M.",
     role: "Founder, TechHub Ghana",
+    image: "/images/modern-office.jpg",
   },
 ];
 
 const industries = [
-  { icon: "🛒", name: "Retail" },
-  { icon: "🏦", name: "Banking" },
-  { icon: "🏥", name: "Healthcare" },
-  { icon: "🎓", name: "Education" },
-  { icon: "🏨", name: "Hospitality" },
-  { icon: "🏛️", name: "Government" },
+  { icon: "🛒", name: "Retail", image: "/images/retail-market.jpg" },
+  { icon: "🏦", name: "Banking", image: "/images/banking.jpg" },
+  { icon: "🏥", name: "Healthcare", image: "/images/healthcare.jpg" },
+  { icon: "🎓", name: "Education", image: "/images/education.jpg" },
+  { icon: "🏨", name: "Hospitality", image: "/images/hospitality.jpg" },
+  { icon: "🏛️", name: "Government", image: "/images/government.jpg" },
 ];
 
 export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-deep-blue via-deep-blue-700 to-deep-blue-800 pt-20">
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="African business cityscape"
+            fill
+            className="object-cover"
+            priority
+            quality={80}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-deep-blue/95 via-deep-blue-700/90 to-deep-blue-800/85" />
+        </div>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-20 -right-20 w-96 h-96 bg-vibrant-orange/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 -left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
@@ -152,19 +174,42 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Feature cards */}
+            {/* Right: Image showcase */}
             <div className="hidden lg:block">
-              <div className="grid grid-cols-2 gap-4">
-                {features.slice(0, 4).map((feat) => (
-                  <div
-                    key={feat.title}
-                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition-all duration-300"
-                  >
-                    <div className="text-3xl mb-3">{feat.icon}</div>
-                    <h3 className="text-white font-semibold text-sm mb-1">{feat.title}</h3>
-                    <p className="text-blue-200 text-xs leading-relaxed">{feat.description.substring(0, 80)}...</p>
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10">
+                  <Image
+                    src="/images/business-phones.jpg"
+                    alt="Business professional using smartphone for communication"
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-[400px]"
+                    priority
+                  />
+                </div>
+                {/* Floating stat cards */}
+                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl">
+                      ✓
+                    </div>
+                    <div>
+                      <div className="font-bold text-deep-blue text-sm">10K+ Messages</div>
+                      <div className="text-gray-500 text-xs">Delivered daily</div>
+                    </div>
                   </div>
-                ))}
+                </div>
+                <div className="absolute -top-4 -right-4 bg-white rounded-xl p-4 shadow-xl">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-vibrant-orange/10 rounded-full flex items-center justify-center text-vibrant-orange text-xl">
+                      🤖
+                    </div>
+                    <div>
+                      <div className="font-bold text-deep-blue text-sm">AI Powered</div>
+                      <div className="text-gray-500 text-xs">24/7 Support</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -189,12 +234,24 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feat, i) => (
               <AnimatedSection key={feat.title} delay={i * 100}>
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="text-4xl p-3 rounded-xl bg-vibrant-orange/10 inline-block mb-4">
-                    {feat.icon}
+                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full overflow-hidden">
+                  <div className="relative h-40 w-full">
+                    <Image
+                      src={feat.image}
+                      alt={feat.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div className="absolute bottom-3 left-3 text-3xl p-2 rounded-xl bg-white/90 backdrop-blur-sm">
+                      {feat.icon}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-deep-blue mb-3">{feat.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feat.description}</p>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-deep-blue mb-3">{feat.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{feat.description}</p>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
@@ -259,10 +316,22 @@ export default function HomePage() {
               <Link
                 key={ind.name}
                 href="/use-cases"
-                className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
               >
-                <div className="text-4xl mb-3">{ind.icon}</div>
-                <h3 className="text-sm font-bold text-deep-blue">{ind.name}</h3>
+                <div className="relative h-28 w-full">
+                  <Image
+                    src={ind.image}
+                    alt={ind.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                  />
+                  <div className="absolute inset-0 bg-deep-blue/30 group-hover:bg-deep-blue/10 transition-colors" />
+                </div>
+                <div className="p-4 text-center">
+                  <div className="text-2xl mb-1">{ind.icon}</div>
+                  <h3 className="text-sm font-bold text-deep-blue">{ind.name}</h3>
+                </div>
               </Link>
             ))}
           </div>
@@ -284,18 +353,30 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
               <AnimatedSection key={i} delay={i * 150}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col">
-                  <div className="flex gap-1 text-vibrant-orange mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <svg key={j} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 h-full flex flex-col overflow-hidden">
+                  <div className="relative h-40 w-full">
+                    <Image
+                      src={t.image}
+                      alt={t.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-deep-blue/80 to-transparent" />
                   </div>
-                  <p className="text-blue-100 mb-6 leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                  <div>
-                    <div className="font-semibold text-white">{t.name}</div>
-                    <div className="text-sm text-blue-300">{t.role}</div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex gap-1 text-vibrant-orange mb-4">
+                      {[...Array(5)].map((_, j) => (
+                        <svg key={j} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-blue-100 mb-6 leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+                    <div>
+                      <div className="font-semibold text-white">{t.name}</div>
+                      <div className="text-sm text-blue-300">{t.role}</div>
+                    </div>
                   </div>
                 </div>
               </AnimatedSection>

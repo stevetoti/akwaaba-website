@@ -102,6 +102,71 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Global Network */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <h4 className="font-semibold text-sm uppercase tracking-wider text-center mb-6">
+            Our Global Network
+          </h4>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a
+              href="https://pacificwavedigital.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group"
+            >
+              <span className="text-xl">🇻🇺</span>
+              <div>
+                <div className="text-white text-sm font-semibold group-hover:text-vibrant-orange transition-colors">
+                  Pacific Wave Digital
+                </div>
+                <div className="text-white/50 text-xs">Vanuatu</div>
+              </div>
+            </a>
+            <a
+              href="https://globaldigitalprime.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group"
+            >
+              <span className="text-xl">🌐</span>
+              <div>
+                <div className="text-white text-sm font-semibold group-hover:text-vibrant-orange transition-colors">
+                  Global Digital Prime
+                </div>
+                <div className="text-white/50 text-xs">USA &amp; Indonesia</div>
+              </div>
+            </a>
+            <a
+              href="https://rapidentrepreneurs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group"
+            >
+              <span className="text-xl">🇬🇭</span>
+              <div>
+                <div className="text-white text-sm font-semibold group-hover:text-vibrant-orange transition-colors">
+                  Rapid Entrepreneurs
+                </div>
+                <div className="text-white/50 text-xs">Ghana</div>
+              </div>
+            </a>
+            <a
+              href="https://akwaabaai.com"
+              className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group"
+            >
+              <span className="text-xl">🇬🇭</span>
+              <div>
+                <div className="text-white text-sm font-semibold group-hover:text-vibrant-orange transition-colors">
+                  Akwaaba AI
+                </div>
+                <div className="text-white/50 text-xs">Ghana</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">

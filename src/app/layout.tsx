@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
+import VoiceWidget from "@/components/VoiceWidget";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://akwaabaai.com"),
@@ -82,6 +84,8 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <ChatWidget />
+        <VoiceWidget />
       </body>
     </html>
   );

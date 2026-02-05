@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
@@ -14,36 +15,42 @@ const comingSoonPosts = [
     category: "AI & Technology",
     excerpt: "Discover how Ghanaian businesses are using AI-powered chatbots to provide 24/7 customer support and reduce response times by up to 80%.",
     date: "Coming Soon",
+    image: "/images/ai-technology.jpg",
   },
   {
     title: "The Complete Guide to WhatsApp Business in Ghana",
     category: "Guides",
     excerpt: "Everything you need to know about setting up, managing, and scaling your business communication on WhatsApp in the Ghanaian market.",
     date: "Coming Soon",
+    image: "/images/messaging.jpg",
   },
   {
     title: "5 SMS Campaign Strategies That Work for Ghanaian Businesses",
     category: "Marketing",
     excerpt: "Proven SMS marketing strategies tailored for the Ghanaian market, including timing, personalisation, and Mobile Money integration.",
     date: "Coming Soon",
+    image: "/images/business-phones.jpg",
   },
   {
     title: "Building Multi-Channel Communication: A Step-by-Step Guide",
     category: "Tutorials",
     excerpt: "Learn how to set up and manage customer communication across WhatsApp, SMS, web chat, and social media from a single platform.",
     date: "Coming Soon",
+    image: "/images/customer-service.jpg",
   },
   {
     title: "Data Protection for Ghanaian Businesses: What You Need to Know",
     category: "Compliance",
     excerpt: "A practical guide to Ghana's Data Protection Act and how to ensure your customer communication is compliant.",
     date: "Coming Soon",
+    image: "/images/modern-office.jpg",
   },
   {
     title: "Case Study: How a Kumasi Retailer Grew Sales 40% with Akwaaba AI",
     category: "Case Studies",
     excerpt: "See how a mid-size retail business in Kumasi used AI chatbots and WhatsApp campaigns to dramatically increase customer engagement.",
     date: "Coming Soon",
+    image: "/images/retail-market.jpg",
   },
 ];
 
@@ -92,15 +99,27 @@ export default function BlogPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {comingSoonPosts.map((post, i) => (
               <AnimatedSection key={i} delay={i * 100}>
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 h-full flex flex-col hover:shadow-lg transition-shadow">
-                  <span className="inline-block bg-deep-blue/5 text-deep-blue text-xs font-semibold px-3 py-1 rounded-full mb-4 self-start">
-                    {post.category}
-                  </span>
-                  <h3 className="text-lg font-bold text-deep-blue mb-3 flex-1">{post.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                  <div className="flex items-center gap-2 text-sm text-vibrant-orange font-semibold">
-                    <span className="w-2 h-2 bg-vibrant-orange rounded-full animate-pulse" />
-                    {post.date}
+                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 h-full flex flex-col hover:shadow-lg transition-shadow overflow-hidden">
+                  <div className="relative h-44 w-full">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <span className="inline-block bg-deep-blue/5 text-deep-blue text-xs font-semibold px-3 py-1 rounded-full mb-4 self-start">
+                      {post.category}
+                    </span>
+                    <h3 className="text-lg font-bold text-deep-blue mb-3 flex-1">{post.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+                    <div className="flex items-center gap-2 text-sm text-vibrant-orange font-semibold">
+                      <span className="w-2 h-2 bg-vibrant-orange rounded-full animate-pulse" />
+                      {post.date}
+                    </div>
                   </div>
                 </div>
               </AnimatedSection>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
@@ -73,6 +74,16 @@ export default function AboutPage() {
         <div className="container-max">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
+              {/* Team/culture image */}
+              <div className="relative h-64 w-full rounded-2xl overflow-hidden shadow-lg mb-8">
+                <Image
+                  src="/images/team-collab.jpg"
+                  alt="Akwaaba AI team collaboration"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <span className="text-vibrant-orange font-semibold text-sm uppercase tracking-wider">
                 Our Mission
               </span>
@@ -166,6 +177,15 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
             <AnimatedSection>
+              <div className="relative h-48 w-full rounded-2xl overflow-hidden shadow-lg mb-6">
+                <Image
+                  src="/images/office-culture.jpg"
+                  alt="Modern office environment"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <span className="text-vibrant-orange font-semibold text-sm uppercase tracking-wider">
                 Built by Pacific Wave Digital
               </span>
